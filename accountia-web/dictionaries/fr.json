@@ -1,0 +1,354 @@
+{
+  "pages": {
+    "profile": {
+      "title": "Profil",
+      "editButton": "Modifier le profil",
+      "tabs": {
+        "overview": "Aperçu",
+        "account": "Compte",
+        "security": "Sécurité"
+      },
+      "personalInfoSection": "Informations personnelles",
+      "accountSection": "Modifier les informations du compte",
+      "securitySection": "Changer votre mot de passe",
+      "twoFactor": {
+        "title": "Authentification à deux facteurs (2FA)",
+        "description": "Ajoutez une couche de sécurité en exigeant un code d'authentification lors de la connexion.",
+        "setupButton": "Configurer le 2FA",
+        "settingUp": "Configuration...",
+        "scanQr": "Scannez ce QR code dans votre application d'authentification",
+        "qrAlt": "QR code 2FA",
+        "manualKey": "Clé de configuration manuelle",
+        "enterCode": "Entrez le code à 6 chiffres",
+        "codePlaceholder": "123456",
+        "enableButton": "Activer le 2FA",
+        "verifying": "Vérification...",
+        "setupSuccess": "Configuration du 2FA démarrée",
+        "setupError": "Échec du démarrage de la configuration du 2FA",
+        "enableSuccess": "Authentification à deux facteurs activée",
+        "verifyError": "Échec de la vérification du code 2FA",
+        "invalidCode": "Code invalide"
+      },
+      "saveButton": "Enregistrer",
+      "cancelButton": "Annuler",
+      "username": "Nom d'utilisateur",
+      "email": "Email",
+      "firstName": "Prénom",
+      "lastName": "Nom de famille",
+      "birthdate": "Date de naissance",
+      "phoneNumber": "Numéro de téléphone",
+      "dateJoined": "Date d'inscription",
+      "notFound": "Utilisateur non trouvé",
+      "updateSuccess": "Profil mis à jour avec succès",
+      "updateError": "Échec de la mise à jour du profil",
+      "deleteButton": "Supprimer le compte",
+      "deleteTitle": "Supprimer le compte",
+      "deleteDescription": "Êtes-vous sûr de vouloir supprimer votre compte ? Cette action est irréversible.",
+      "deleteConfirmButton": "Supprimer",
+      "deleteError": "Échec de la suppression du compte"
+    },
+    "forgotPassword": {
+      "title": "Mot de passe oublié",
+      "description": "Entrez votre adresse email et nous vous enverrons un lien pour réinitialiser votre mot de passe.",
+      "emailLabel": "Email",
+      "emailPlaceholder": "Entrez votre email",
+      "sendButton": "Envoyer l'email de réinitialisation",
+      "sendingButton": "Envoi en cours...",
+      "successTitle": "Vérifiez votre email",
+      "successDescription": "Nous vous avons envoyé un email avec des instructions pour réinitialiser votre mot de passe.",
+      "successMessage": "Si le compte existe, vérifiez votre email pour le lien de réinitialisation",
+      "checkEmailMessage": "Si un compte avec cet email existe, vous recevrez un lien de réinitialisation de mot de passe sous peu.",
+      "backToLogin": "Retour à la connexion"
+    },
+    "resetPassword": {
+      "title": "Réinitialiser le mot de passe",
+      "description": "Entrez votre nouveau mot de passe ci-dessous.",
+      "tokenLabel": "Jeton de réinitialisation",
+      "tokenPlaceholder": "Entrez votre jeton de réinitialisation",
+      "passwordLabel": "Nouveau mot de passe",
+      "passwordPlaceholder": "Entrez votre nouveau mot de passe",
+      "resetButton": "Réinitialiser le mot de passe",
+      "resettingButton": "Réinitialisation...",
+      "successMessage": "Mot de passe réinitialisé avec succès",
+      "errorMessage": "Échec de la réinitialisation du mot de passe",
+      "invalidTokenTitle": "Lien invalide ou expiré",
+      "invalidTokenDescription": "Ce lien de réinitialisation de mot de passe n'est plus valide.",
+      "invalidTokenMessage": "Le jeton de réinitialisation a peut-être expiré ou a déjà été utilisé. Veuillez demander un nouveau lien de réinitialisation de mot de passe.",
+      "requestNewLink": "Demander un nouveau lien de réinitialisation",
+      "tokenDetected": "Jeton de réinitialisation détecté depuis le lien email.",
+      "backToLogin": "Retour à la connexion"
+    },
+    "home": {
+      "navigation": {
+        "features": "Fonctionnalités",
+        "solutions": "Solutions",
+        "pricing": "Tarifs",
+        "getStarted": "Commencer",
+        "login": "Connexion",
+        "register": "S'inscrire",
+        "profile": "Profil",
+        "adminDashboard": "Tableau de bord admin",
+        "logout": "Déconnexion"
+      },
+      "hero": {
+        "badge": "Gestion d'Entreprise Alimentée par l'IA",
+        "title": "Votre Comptable IA",
+        "subtitle": "Partenaire d'Affaires 24/7",
+        "description": "Transformez votre entreprise avec l'automatisation intelligente. Accountia remplace la comptabilité traditionnelle par des aperçus alimentés par l'IA, une comptabilité automatisée et des conseils financiers en temps réel.",
+        "startTrial": "Essai Gratuit",
+        "watchDemo": "Voir la Démo"
+      },
+      "stats": {
+        "businesses": "Entreprises",
+        "transactions": "Transactions",
+        "accuracy": "Précision",
+        "support": "Support"
+      },
+      "features": {
+        "title": "Tout Ce Dont Vous Avez Besoin pour Gérer Votre Entreprise",
+        "description": "Fonctionnalités puissantes conçues pour rationaliser vos opérations financières",
+        "aiInsights": {
+          "title": "Aperçus Alimentés par l'IA",
+          "description": "Obtenez des recommandations financières intelligentes et des prédictions basées sur vos données d'entreprise"
+        },
+        "automatedBookkeeping": {
+          "title": "Comptabilité Automatisée",
+          "description": "Éliminez la saisie de données manuelle avec une catégorisation intelligente et une réconciliation en temps réel"
+        },
+        "realtimeAnalytics": {
+          "title": "Analytiques en Temps Réel",
+          "description": "Surveillez les performances de votre entreprise avec des tableaux de bord en direct et des rapports personnalisés"
+        },
+        "smartInvoicing": {
+          "title": "Facturation Intelligente",
+          "description": "Créez, envoyez et suivez les factures automatiquement avec des rappels de paiement alimentés par l'IA"
+        },
+        "taxOptimization": {
+          "title": "Optimisation Fiscale",
+          "description": "Maximisez les déductions et minimisez le passif fiscal avec une planification fiscale intelligente"
+        },
+        "security": {
+          "title": "Sécurité Niveau Bancaire",
+          "description": "Vos données financières sont protégées par un cryptage et une sécurité de niveau entreprise"
+        }
+      },
+      "solutions": {
+        "title": "Conçu pour Chaque Type d'Entreprise",
+        "description": "Que vous soyez une startup ou une entreprise, nous vous couvrons",
+        "mostPopular": "Le plus populaire",
+        "viewAllSolutions": "Voir toutes les solutions",
+        "startups": {
+          "title": "Startups",
+          "description": "Parfait pour les nouvelles entreprises cherchant à établir des fondations financières solides",
+          "features": [
+            "Configuration et intégration faciles",
+            "Rapports prêts pour les investisseurs",
+            "Suivi du taux de burn"
+          ]
+        },
+        "smallBusiness": {
+          "title": "Petites Entreprises",
+          "description": "Outils complets pour les entreprises en croissance avec des besoins croissants",
+          "features": [
+            "Support multi-devises",
+            "Intégration de la paie",
+            "Gestion des stocks"
+          ]
+        },
+        "enterprise": {
+          "title": "Entreprise",
+          "description": "Fonctionnalités avancées pour les grandes organisations avec des exigences complexes",
+          "features": [
+            "Workflows personnalisés",
+            "Conformité avancée",
+            "Support dédié"
+          ]
+        }
+      },
+      "cta": {
+        "title": "Prêt à Transformer Votre Entreprise ?",
+        "description": "Rejoignez des milliers d'entreprises qui ont déjà fait le passage à la gestion financière alimentée par l'IA.",
+        "startTrial": "Essai Gratuit",
+        "scheduleDemo": "Planifier une Démo"
+      },
+      "footer": {
+        "tagline": "Votre plateforme de gestion d'entreprise alimentée par l'IA.",
+        "product": "Produit",
+        "company": "Entreprise",
+        "support": "Support",
+        "features": "Fonctionnalités",
+        "pricing": "Tarifs",
+        "security": "Sécurité",
+        "about": "À Propos",
+        "blog": "Blog",
+        "careers": "Carrières",
+        "helpCenter": "Centre d'Aide",
+        "contact": "Contact",
+        "status": "Statut",
+        "copyright": "© 2024 Accountia. Tous droits réservés."
+      }
+    },
+    "login": {
+      "title": "Bon retour",
+      "description": "Connectez-vous à votre compte Accountia pour continuer",
+      "emailLabel": "Email",
+      "emailPlaceholder": "Entrez votre email",
+      "passwordLabel": "Mot de passe",
+      "passwordPlaceholder": "Entrez votre mot de passe",
+      "signInButton": "Se connecter",
+      "signingInButton": "Connexion...",
+      "continueWithGoogle": "Continuer avec Google",
+      "forgotPassword": "Mot de passe oublié ?",
+      "noAccount": "Pas de compte ?",
+      "signUp": "S'inscrire",
+      "signInAriaLabel": "Se connecter à votre compte",
+      "resetPasswordAriaLabel": "Réinitialiser le mot de passe",
+      "createAccountAriaLabel": "Créer un nouveau compte",
+      "authNavigationLabel": "Navigation d'authentification",
+      "unexpectedError": "Une erreur est survenue lors de la connexion. Veuillez réessayer.",
+      "twoFactorLabel": "Code de vérification",
+      "twoFactorPlaceholder": "Entrez votre code 2FA",
+      "verify2FAButton": "Vérifier 2FA",
+      "verifying2FAButton": "Vérification..."
+    },
+    "register": {
+      "title": "Créer un compte",
+      "description": "Rejoignez Accountia pour gérer efficacement les finances de votre entreprise",
+      "firstNameLabel": "Prénom",
+      "firstNamePlaceholder": "Entrez votre prénom",
+      "lastNameLabel": "Nom de famille",
+      "lastNamePlaceholder": "Entrez votre nom de famille",
+      "usernameLabel": "Nom d'utilisateur",
+      "usernamePlaceholder": "Choisissez un nom d'utilisateur",
+      "birthdateLabel": "Date de naissance",
+      "birthdatePlaceholder": "Sélectionnez votre date de naissance",
+      "phoneNumberLabel": "Numéro de téléphone",
+      "phoneNumberPlaceholder": "Entrez votre numéro de téléphone",
+      "emailLabel": "Email",
+      "emailPlaceholder": "Entrez votre email",
+      "passwordLabel": "Mot de passe",
+      "passwordPlaceholder": "Créer un mot de passe",
+      "confirmPasswordLabel": "Confirmer le mot de passe",
+      "confirmPasswordPlaceholder": "Confirmez votre mot de passe",
+      "termsAndConditions": "J'accepte les termes et conditions",
+      "registerButton": "S'inscrire",
+      "creatingAccountButton": "Création du compte...",
+      "continueWithGoogle": "S'inscrire avec Google",
+      "hasAccount": "Vous avez déjà un compte?",
+      "signIn": "Se connecter",
+      "dialog": {
+        "registrationSuccessTitle": "Inscription Réussie !",
+        "registrationSuccessMessage": "Votre compte a été créé avec succès ! Veuillez vérifier votre email pour confirmer votre compte.",
+        "loginButton": "Aller à la Connexion",
+        "emailNotConfirmedTitle": "Email non confirmé",
+        "emailNotConfirmedDescription": "Un compte avec l'email {email} existe déjà mais l'email n'a pas encore été confirmé.",
+        "cancelButton": "Annuler",
+        "resendConfirmationButton": "Renvoyer l'email de confirmation",
+        "resendingButton": "Envoi en cours..."
+      },
+      "errors": {
+        "nameRequired": "Le nom est requis",
+        "emailRequired": "L'email est requis",
+        "emailInvalid": "Adresse email invalide",
+        "passwordRequired": "Le mot de passe est requis",
+        "passwordTooShort": "Le mot de passe doit contenir au moins 8 caractères",
+        "passwordsNotMatch": "Les mots de passe ne correspondent pas",
+        "confirmPasswordRequired": "Veuillez confirmer votre mot de passe",
+        "acceptTermsRequired": "Vous devez accepter les termes et conditions"
+      },
+      "resendSuccessMessage": "Email de confirmation envoyé avec succès",
+      "resendErrorMessage": "Échec de l'envoi de l'email de confirmation",
+      "unexpectedError": "Une erreur est survenue lors de la connexion. Veuillez réessayer.",
+      "registrationFailed": "L'inscription a échoué. Veuillez réessayer.",
+      "emailAlreadyRegistered": "Cet email est déjà enregistré",
+      "accountExists": "Un compte avec cet email existe déjà",
+      "personalInfoLabel": "Informations personnelles",
+      "accountInfoLabel": "Informations du compte",
+      "authNavLabel": "Navigation d'authentification"
+    }
+  },
+  "tooltips": {
+    "aiInsights": "En savoir plus sur les aperçus alimentés par l'IA",
+    "automatedBookkeeping": "Fonctionnalités de comptabilité automatisée",
+    "realtimeAnalytics": "Tableau de bord analytique en temps réel",
+    "smartInvoicing": "Système de facturation intelligent",
+    "taxOptimization": "Fonctionnalités d'optimisation fiscale",
+    "security": "Fonctionnalités de sécurité niveau bancaire",
+    "changeLanguage": "Changer de langue",
+    "toggleTheme": "Basculer le thème",
+    "getStarted": "Commencer avec Accountia",
+    "signIn": "Se connecter à votre compte",
+    "createAccount": "Créer un nouveau compte",
+    "profile": "Voir votre profil",
+    "adminDashboard": "Accéder au tableau de bord admin",
+    "logout": "Se déconnecter de votre compte",
+    "perfectForNewBusinesses": "Parfait pour les nouvelles entreprises",
+    "mostPopularChoice": "Le choix le plus populaire",
+    "advancedFeatures": "Fonctionnalités avancées pour les grandes organisations"
+  },
+  "brand": {
+    "name": "Accountia",
+    "logoAlt": "Logo Accountia"
+  },
+  "admin": {
+    "title": "Tableau de bord administrateur",
+    "subtitle": "Gérez les utilisateurs et les accès",
+    "stats": {
+      "totalUsers": "Total des utilisateurs",
+      "totalAdmins": "Administrateurs",
+      "lastUpdated": "Synchroniser les utilisateurs",
+      "placeholder": "—",
+      "syncButton": "Synchroniser",
+      "refreshing": "Actualisation...",
+      "upToDate": "À jour"
+    },
+    "usersTitle": "Utilisateurs",
+    "searchPlaceholder": "Rechercher des utilisateurs...",
+    "dateFilterLabel": "Filtrer par date d'inscription:",
+    "dateFilterPlaceholder": "Sélectionner une plage de dates",
+    "loadError": "Échec du chargement des utilisateurs",
+    "deleteError": "Échec de la suppression de l'utilisateur",
+    "noResults": "Aucun résultat trouvé.",
+    "adminBadge": "Admin",
+    "userBadge": "Utilisateur",
+    "manageButton": "Gérer",
+    "deleteDialog": {
+      "title": "Supprimer l'utilisateur",
+      "description": "Êtes-vous sûr de vouloir supprimer l'utilisateur {username} ? Cette action est irréversible.",
+      "confirm": "Supprimer",
+      "deleting": "Suppression..."
+    },
+    "tableCaption": "Liste de tous les utilisateurs",
+    "username": "Nom d'utilisateur",
+    "email": "Email",
+    "firstName": "Prénom",
+    "lastName": "Nom de famille",
+    "isAdmin": "Admin",
+    "dateJoined": "Date d'inscription",
+    "actions": "Actions",
+    "confirmDeleteTitle": "Confirmer la suppression",
+    "confirmDeleteDescription": "Êtes-vous sûr de vouloir supprimer l'utilisateur {username} ? Cette action est irréversible.",
+    "noUsers": "Aucun utilisateur trouvé."
+  },
+  "common": {
+    "loading": "Chargement...",
+    "error": "Erreur",
+    "retry": "Réessayer",
+    "cancel": "Annuler",
+    "clear": "Effacer",
+    "na": "N/D",
+    "showPassword": "Afficher le mot de passe",
+    "hidePassword": "Masquer le mot de passe",
+    "save": "Enregistrer",
+    "delete": "Supprimer",
+    "edit": "Modifier",
+    "close": "Fermer",
+    "confirm": "Confirmer",
+    "yes": "Oui",
+    "no": "Non",
+    "pageNotFound": "Oups! Cette page a disparu dans les airs.",
+    "pageNotFoundDescription": "La page que vous cherchez n'existe pas ou a été déplacée.",
+    "pageNotFoundHelp": "Remettons-nous sur la bonne voie.",
+    "goHome": "Retour à l'accueil"
+  }
+}

@@ -1,0 +1,346 @@
+{
+  "pages": {
+    "profile": {
+      "title": "الملف الشخصي",
+      "editButton": "تعديل الملف الشخصي",
+      "tabs": {
+        "overview": "نظرة عامة",
+        "account": "الحساب",
+        "security": "الأمان"
+      },
+      "personalInfoSection": "المعلومات الشخصية",
+      "accountSection": "تعديل بيانات الحساب",
+      "securitySection": "تغيير كلمة المرور",
+      "twoFactor": {
+        "title": "المصادقة الثنائية (2FA)",
+        "description": "أضف طبقة أمان إضافية بطلب رمز المصادقة عند تسجيل الدخول.",
+        "setupButton": "إعداد المصادقة الثنائية",
+        "settingUp": "جارٍ الإعداد...",
+        "scanQr": "امسح رمز QR هذا في تطبيق المصادقة لديك",
+        "qrAlt": "رمز QR للمصادقة الثنائية",
+        "manualKey": "مفتاح الإعداد اليدوي",
+        "enterCode": "أدخل الرمز المكون من 6 أرقام",
+        "codePlaceholder": "123456",
+        "enableButton": "تفعيل المصادقة الثنائية",
+        "verifying": "جارٍ التحقق...",
+        "setupSuccess": "بدأ إعداد المصادقة الثنائية",
+        "setupError": "فشل بدء إعداد المصادقة الثنائية",
+        "enableSuccess": "تم تفعيل المصادقة الثنائية",
+        "verifyError": "فشل التحقق من رمز المصادقة الثنائية",
+        "invalidCode": "رمز غير صالح"
+      },
+      "saveButton": "حفظ",
+      "cancelButton": "إلغاء",
+      "username": "اسم المستخدم",
+      "email": "البريد الإلكتروني",
+      "firstName": "الاسم الأول",
+      "lastName": "اسم العائلة",
+      "birthdate": "تاريخ الميلاد",
+      "phoneNumber": "رقم الهاتف",
+      "dateJoined": "تاريخ الانضمام",
+      "notFound": "المستخدم غير موجود",
+      "updateSuccess": "تم تحديث الملف الشخصي بنجاح",
+      "updateError": "فشل في تحديث الملف الشخصي",
+      "deleteButton": "حذف الحساب",
+      "deleteTitle": "حذف الحساب",
+      "deleteDescription": "هل أنت متأكد أنك تريد حذف حسابك؟ لا يمكن التراجع عن هذا الإجراء.",
+      "deleteConfirmButton": "حذف",
+      "deleteError": "فشل في حذف الحساب"
+    },
+    "forgotPassword": {
+      "title": "نسيت كلمة المرور",
+      "description": "أدخل بريدك الإلكتروني وسنرسل لك رابطًا لإعادة تعيين كلمة المرور.",
+      "emailLabel": "البريد الإلكتروني",
+      "emailPlaceholder": "أدخل بريدك الإلكتروني",
+      "sendButton": "إرسال بريد إعادة التعيين",
+      "sendingButton": "جاري الإرسال...",
+      "successTitle": "تحقق من بريدك الإلكتروني",
+      "successDescription": "لقد أرسلنا لك بريدًا إلكترونيًا يحتوي على تعليمات لإعادة تعيين كلمة المرور.",
+      "successMessage": "إذا كان الحساب موجودًا، تحقق من بريدك الإلكتروني للحصول على رابط إعادة التعيين",
+      "checkEmailMessage": "إذا كان حساب بهذا البريد الإلكتروني موجودًا، ستتلقى رابط إعادة تعيين كلمة المرور قريبًا.",
+      "backToLogin": "العودة إلى تسجيل الدخول"
+    },
+    "resetPassword": {
+      "title": "إعادة تعيين كلمة المرور",
+      "description": "أدخل كلمة المرور الجديدة أدناه.",
+      "tokenLabel": "رمز إعادة التعيين",
+      "tokenPlaceholder": "أدخل رمز إعادة التعيين",
+      "passwordLabel": "كلمة المرور الجديدة",
+      "passwordPlaceholder": "أدخل كلمة المرور الجديدة",
+      "resetButton": "إعادة تعيين كلمة المرور",
+      "resettingButton": "جاري إعادة التعيين...",
+      "successMessage": "تم إعادة تعيين كلمة المرور بنجاح",
+      "errorMessage": "فشل في إعادة تعيين كلمة المرور",
+      "invalidTokenTitle": "رابط غير صالح أو منتهي الصلاحية",
+      "invalidTokenDescription": "هذا الرابط لإعادة تعيين كلمة المرور لم يعد صالحًا.",
+      "invalidTokenMessage": "قد يكون رمز إعادة التعيين قد انتهت صلاحيته أو تم استخدامه بالفعل. يرجى طلب رابط جديد لإعادة تعيين كلمة المرور.",
+      "requestNewLink": "طلب رابط إعادة تعيين جديد",
+      "tokenDetected": "تم اكتشاف رمز إعادة التعيين من رابط البريد الإلكتروني.",
+      "backToLogin": "العودة إلى تسجيل الدخول"
+    },
+    "home": {
+      "navigation": {
+        "features": "الميزات",
+        "solutions": "الحلول",
+        "pricing": "الأسعار",
+        "getStarted": "ابدأ الآن",
+        "login": "تسجيل الدخول",
+        "register": "إنشاء حساب",
+        "profile": "الملف الشخصي",
+        "adminDashboard": "لوحة تحكم المدير",
+        "logout": "تسجيل الخروج"
+      },
+      "hero": {
+        "badge": "إدارة الأعمال المدعومة بالذكاء الاصطناعي",
+        "title": "محاسبك بالذكاء الاصطناعي",
+        "subtitle": "شريك أعمال على مدار الساعة",
+        "description": "حول أعمالك بالأتمتة الذكية. Accountia يحل المحاسبة التقليدية برؤى مدعومة بالذكاء الاصطناعي، ومحاسبة آلية، وإرشادات مالية في الوقت الفعلي.",
+        "startTrial": "تجربة مجانية",
+        "watchDemo": "شاهد العرض التوضيحي"
+      },
+      "stats": {
+        "businesses": "الشركات",
+        "transactions": "المعاملات",
+        "accuracy": "الدقة",
+        "support": "الدعم"
+      },
+      "features": {
+        "title": "ميزات قوية للأعمال الحديثة",
+        "description": "كل ما تحتاجه لإدارة شؤونك المالية بكفاءة في منصة واحدة",
+        "aiInsights": {
+          "title": "رؤى الذكاء الاصطناعي",
+          "description": "احصل على توصيات وتنبؤات ذكية بناءً على بياناتك المالية"
+        },
+        "automatedBookkeeping": {
+          "title": "محاسبة آلية",
+          "description": "تخلص من إدخال البيانات اليدوي مع التصنيف الذكي والمصالحة في الوقت الفعلي"
+        },
+        "realtimeAnalytics": {
+          "title": "تحليلات في الوقت الفعلي",
+          "description": "راقب أداء عملك مع لوحات معلومات مباشرة وتقارير مخصصة"
+        },
+        "smartInvoicing": {
+          "title": "فواتير ذكية",
+          "description": "أنشئ وأرسل وتتبع الفواتير تلقائيًا مع تذكيرات الدفع المدعومة بالذكاء الاصطناعي"
+        },
+        "taxOptimization": {
+          "title": "تحسين الضرائب",
+          "description": "عظم الخصوم وقلل الالتزام الضريبي مع التخطيط الضريبي الذكي"
+        },
+        "security": {
+          "title": "أمان على مستوى البنوك",
+          "description": "بياناتك المالية محمية بالتشفير والأمان على مستوى المؤسسات"
+        }
+      },
+      "solutions": {
+        "title": "مصمم لكل نوع من الأعمال",
+        "description": "سواء كنت شركة ناشئة أو مؤسسة، نحن نغطيك",
+        "mostPopular": "الأكثر شعبية",
+        "viewAllSolutions": "عرض جميع الحلول",
+        "startups": {
+          "title": "الشركات الناشئة",
+          "description": "مثالي للشركات الجديدة التي تسعى لإنشاء أسس مالية قوية",
+          "features": [
+            "إعداد وتكوين سهل",
+            "تقارير جاهزة للمستثمرين",
+            "تتبع معدل الحرق"
+          ]
+        },
+        "smallBusiness": {
+          "title": "الشركات الصغيرة",
+          "description": "أدوات شاملة للشركات النامية باحتياجات متزايدة",
+          "features": ["دعم متعدد العملات", "تكامل الرواتب", "إدارة المخزون"]
+        },
+        "enterprise": {
+          "title": "المؤسسات الكبيرة",
+          "description": "ميزات متقدمة للمؤسسات الكبيرة بمتطلبات معقدة",
+          "features": ["سير عمل مخصص", "امتثال متقدم", "دعم مخصص"]
+        }
+      },
+      "cta": {
+        "title": "هل أنت مستعد لتحويل أعمالك؟",
+        "description": "انضم إلى آلاف الشركات التي قامت بالفعل بالتحول إلى الإدارة المالية المدعومة بالذكاء الاصطناعي.",
+        "startTrial": "تجربة مجانية",
+        "scheduleDemo": "جد عرض توضيحي"
+      },
+      "footer": {
+        "tagline": "منصة إدارة الأعمال المدعومة بالذكاء الاصطناعي الخاصة بك.",
+        "product": "المنتج",
+        "company": "الشركة",
+        "support": "الدعم",
+        "features": "الميزات",
+        "pricing": "الأسعار",
+        "security": "الأمان",
+        "about": "من نحن",
+        "blog": "المدونة",
+        "careers": "الوظائف",
+        "helpCenter": "مركز المساعدة",
+        "contact": "اتصل بنا",
+        "status": "الحالة",
+        "copyright": "© 2024 Accountia. جميع الحقوق محفوظة."
+      }
+    },
+    "login": {
+      "title": "مرحباً بعودتك",
+      "description": "سجل الدخول إلى حساب Accountia للمتابعة",
+      "emailLabel": "البريد الإلكتروني",
+      "emailPlaceholder": "أدخل بريدك الإلكتروني",
+      "passwordLabel": "كلمة المرور",
+      "passwordPlaceholder": "أدخل كلمة المرور",
+      "signInButton": "تسجيل الدخول",
+      "signingInButton": "جاري تسجيل الدخول...",
+      "continueWithGoogle": "المتابعة باستخدام Google",
+      "forgotPassword": "نسيت كلمة المرور؟",
+      "noAccount": "ليس لديك حساب؟",
+      "signUp": "إنشاء حساب",
+      "signInAriaLabel": "تسجيل الدخول إلى حسابك",
+      "resetPasswordAriaLabel": "إعادة تعيين كلمة المرور",
+      "createAccountAriaLabel": "إنشاء حساب جديد",
+      "authNavigationLabel": "التنقل في المصادقة",
+      "unexpectedError": "حدث خطأ أثناء تسجيل الدخول. يرجى المحاولة مرة أخرى.",
+      "twoFactorLabel": "رمز التحقق الثنائي",
+      "twoFactorPlaceholder": "أدخل رمز التحقق الثنائي",
+      "verify2FAButton": "تحقق من 2FA",
+      "verifying2FAButton": "جاري التحقق..."
+    },
+    "register": {
+      "title": "إنشاء حساب",
+      "description": "انضم إلى Accountia لإدارة شؤونك المالية بكفاءة",
+      "firstNameLabel": "الاسم الأول",
+      "firstNamePlaceholder": "أدخل اسمك الأول",
+      "lastNameLabel": "اسم العائلة",
+      "lastNamePlaceholder": "أدخل اسم عائلتك",
+      "usernameLabel": "اسم المستخدم",
+      "usernamePlaceholder": "اختر اسم مستخدم",
+      "birthdateLabel": "تاريخ الميلاد",
+      "birthdatePlaceholder": "اختر تاريخ ميلادك",
+      "phoneNumberLabel": "رقم الهاتف",
+      "phoneNumberPlaceholder": "أدخل رقم هاتفك",
+      "emailLabel": "البريد الإلكتروني",
+      "emailPlaceholder": "أدخل بريدك الإلكتروني",
+      "passwordLabel": "كلمة المرور",
+      "passwordPlaceholder": "إنشاء كلمة مرور",
+      "confirmPasswordLabel": "تأكيد كلمة المرور",
+      "confirmPasswordPlaceholder": "أكد كلمة المرور",
+      "termsAndConditions": "أوافق على الشروط والأحكام",
+      "registerButton": "إنشاء حساب",
+      "creatingAccountButton": "جاري إنشاء الحساب...",
+      "continueWithGoogle": "إنشاء حساب باستخدام Google",
+      "hasAccount": "لديك حساب بالفعل؟",
+      "signIn": "تسجيل الدخول",
+      "dialog": {
+        "registrationSuccessTitle": "تم إنشاء الحساب بنجاح!",
+        "registrationSuccessMessage": "لقد تم إنشاء حسابك بنجاح! يرجى التحقق من بريدك الإلكتروني لتأكيد حسابك.",
+        "loginButton": "الذهاب إلى تسجيل الدخول",
+        "emailNotConfirmedTitle": "البريد الإلكتروني غير مؤكد",
+        "emailNotConfirmedDescription": "حساب بالبريد الإلكتروني {email} موجود بالفعل لكن لم يتم تأكيد البريد الإلكتروني بعد.",
+        "cancelButton": "إلغاء",
+        "resendConfirmationButton": "إعادة إرسال بريد التأكيد",
+        "resendingButton": "جاري الإرسال..."
+      },
+      "errors": {
+        "nameRequired": "الاسم مطلوب",
+        "emailRequired": "البريد الإلكتروني مطلوب",
+        "emailInvalid": "عنوان بريد إلكتروني غير صالح",
+        "passwordRequired": "كلمة المرور مطلوبة",
+        "passwordTooShort": "كلمة المرور يجب أن تكون 8 أحرف على الأقل",
+        "passwordsNotMatch": "كلمات المرور غير متطابقة",
+        "confirmPasswordRequired": "يرجى تأكيد كلمة المرور",
+        "acceptTermsRequired": "يجب عليك قبول الشروط والأحكام"
+      },
+      "resendSuccessMessage": "تم إرسال بريد التأكيد بنجاح",
+      "resendErrorMessage": "فشل في إرسال بريد التأكيد",
+      "unexpectedError": "حدث خطأ أثناء تسجيل الدخول. يرجى المحاولة مرة أخرى.",
+      "registrationFailed": "فشل في التسجيل. يرجى المحاولة مرة أخرى.",
+      "emailAlreadyRegistered": "هذا البريد الإلكتروني مسجل بالفعل",
+      "accountExists": "حساب بهذا البريد الإلكتروني موجود بالفعل",
+      "personalInfoLabel": "المعلومات الشخصية",
+      "accountInfoLabel": "معلومات الحساب",
+      "authNavLabel": "الملاحة المصادقة"
+    }
+  },
+  "tooltips": {
+    "aiInsights": "تعرف المزيد حول الرؤى المدعومة بالذكاء الاصطناعي",
+    "automatedBookkeeping": "ميزات المحاسبة الآلية",
+    "realtimeAnalytics": "لوحة معلومات تحليلية في الوقت الفعلي",
+    "smartInvoicing": "نظام الفواتير الذكي",
+    "taxOptimization": "ميزات تحسين الضرائب",
+    "security": "ميزات الأمان على مستوى البنوك",
+    "changeLanguage": "تغيير اللغة",
+    "toggleTheme": "تبديل المظهر",
+    "getStarted": "ابدأ مع Accountia",
+    "signIn": "تسجيل الدخول إلى حسابك",
+    "createAccount": "إنشاء حساب جديد",
+    "profile": "عرض ملفك الشخصي",
+    "adminDashboard": "الانتقال إلى لوحة تحكم المدير",
+    "logout": "تسجيل الخروج من حسابك",
+    "perfectForNewBusinesses": "مثالي للشركات الجديدة",
+    "mostPopularChoice": "الخيار الأكثر شعبية",
+    "advancedFeatures": "ميزات متقدمة للمؤسسات الكبيرة"
+  },
+  "brand": {
+    "name": "Accountia",
+    "logoAlt": "شعار Accountia"
+  },
+  "admin": {
+    "title": "لوحة تحكم المدير",
+    "subtitle": "إدارة المستخدمين وصلاحيات الوصول",
+    "stats": {
+      "totalUsers": "إجمالي المستخدمين",
+      "totalAdmins": "المسؤولون",
+      "lastUpdated": "مزامنة المستخدمين",
+      "placeholder": "—",
+      "syncButton": "مزامنة",
+      "refreshing": "جارٍ التحديث...",
+      "upToDate": "محدّث"
+    },
+    "usersTitle": "المستخدمون",
+    "searchPlaceholder": "ابحث عن مستخدمين...",
+    "dateFilterLabel": "تصفية حسب تاريخ التسجيل:",
+    "dateFilterPlaceholder": "اختر نطاق التاريخ",
+    "loadError": "فشل تحميل المستخدمين",
+    "deleteError": "فشل حذف المستخدم",
+    "noResults": "لم يتم العثور على نتائج.",
+    "adminBadge": "مسؤول",
+    "userBadge": "مستخدم",
+    "manageButton": "إدارة",
+    "deleteDialog": {
+      "title": "حذف المستخدم",
+      "description": "هل أنت متأكد أنك تريد حذف المستخدم {username}؟ لا يمكن التراجع عن هذا الإجراء.",
+      "confirm": "حذف",
+      "deleting": "جارٍ الحذف..."
+    },
+    "tableCaption": "قائمة جميع المستخدمين",
+    "username": "اسم المستخدم",
+    "email": "البريد الإلكتروني",
+    "firstName": "الاسم الأول",
+    "lastName": "اسم العائلة",
+    "isAdmin": "مسؤول",
+    "dateJoined": "تاريخ الانضمام",
+    "actions": "إجراءات",
+    "confirmDeleteTitle": "تأكيد الحذف",
+    "confirmDeleteDescription": "هل أنت متأكد أنك تريد حذف المستخدم {username}؟ لا يمكن التراجع عن هذا الإجراء.",
+    "noUsers": "لم يتم العثور على مستخدمين."
+  },
+  "common": {
+    "loading": "جاري التحميل...",
+    "error": "خطأ",
+    "retry": "إعادة المحاولة",
+    "cancel": "إلغاء",
+    "clear": "مسح",
+    "na": "غير متاح",
+    "showPassword": "إظهار كلمة المرور",
+    "hidePassword": "إخفاء كلمة المرور",
+    "save": "حفظ",
+    "delete": "حذف",
+    "edit": "تعديل",
+    "close": "إغلاق",
+    "confirm": "تأكيد",
+    "yes": "نعم",
+    "no": "لا",
+    "pageNotFound": "أوبس! هذه الصفحة اختفت في الهواء.",
+    "pageNotFoundDescription": "الصفحة التي تبحث عنها غير موجودة أو تم نقلها.",
+    "pageNotFoundHelp": "دعنا نعيدك إلى المسار الصحيح.",
+    "goHome": "العودة إلى الصفحة الرئيسية"
+  }
+}

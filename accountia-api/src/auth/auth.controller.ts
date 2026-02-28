@@ -1,0 +1,468 @@
+import {
+  Controller,
+  Post,
+  Body,
+  HttpCode,
+  HttpStatus,
+  UseGuards,
+  Get,
+  Put,
+  Patch,
+  Delete,
+  Req,
+  Param,
+  Res,
+  Query,
+  HttpException,
+} from '@nestjs/common';
+import {
+  ApiTags,
+  ApiOperation,
+  ApiResponse,
+  ApiBearerAuth,
+  ApiExtraModels,
+  getSchemaPath,
+} from '@nestjs/swagger';
+import { RefreshTokenDto } from './dto/refresh-token.dto';
+import type { Request } from 'express';
+import type { Response } from 'express';
+import { readFile } from 'node:fs/promises';
+import { AuthService } from '@/auth/auth.service';
+import { RegisterDto } from '@/auth/dto/register.dto';
+import { LoginDto } from '@/auth/dto/login.dto';
+import { ForgotPasswordDto } from '@/auth/dto/forgot-password.dto';
+import { ResetPasswordDto } from '@/auth/dto/reset-password.dto';
+import { UpdateUserDto } from '@/auth/dto/update-user.dto';
+import { FetchUserByIdDto } from '@/auth/dto/fetch-user-by-id.dto';
+import { AuthResponseDto } from '@/auth/dto/auth-response.dto';
+import { RegistrationResponseDto } from '@/auth/dto/registration-response.dto';
+import {
+  UserResponseDto,
+  MessageResponseDto,
+  PrivateUserResponseDto,
+} from '@/auth/dto/user-response.dto';
+import { UsersListResponseDto } from '@/auth/dto/users-list.dto';
+import { ResendConfirmationDto } from '@/auth/dto/resend-confirmation.dto';
+import { JwtAuthGuard } from '@/auth/guards/jwt-auth.guard';
+import { RefreshJwtGuard } from '@/auth/guards/refresh-jwt.guard';
+import { AdminGuard } from '@/auth/guards/admin.guard';
+import { CurrentUser } from '@/auth/decorators/current-user.decorator';
+import { type UserPayload } from '@/auth/types/auth.types';
+import { TwoFASetupResponseDto } from '@/auth/dto/2fa-setup.dto';
+import { TwoFAVerifyDto } from '@/auth/dto/2fa-verify.dto';
+import { TwoFALoginDto } from '@/auth/dto/2fa-login.dto';
+
+@ApiTags('Authentication')
+@ApiExtraModels(AuthResponseDto)
+@Controller('auth')
+export class AuthController {
+  constructor(private readonly authService: AuthService) {}
+
+  @Get('google')
+  @ApiOperation({ summary: 'Start Google OAuth login/signup flow' })
+  @ApiResponse({ status: 302, description: 'Redirects to Google OAuth consent' })
+  googleAuth(
+    @Query('mode') mode: 'login' | 'register' = 'login',
+    @Query('lang') lang = 'en',
+    @Query('redirectUri') redirectUri?: string,
+    @Res() res?: Response
+  ): void {
+    const url = this.authService.getGoogleAuthUrl({
+      mode,
+      lang,
+      redirectUri,
+    });
+    res?.redirect(url);
+  }
+
+  @Get('google/callback')
+  @ApiOperation({ summary: 'Handle Google OAuth callback and redirect to frontend' })
+  @ApiResponse({ status: 302, description: 'Redirects to frontend callback route' })
+  async googleCallback(
+    @Query('code') code?: string,
+    @Query('state') state?: string,
+    @Res() res?: Response
+  ): Promise<void> {
+    try {
+      const redirectUrl = await this.authService.handleGoogleCallback({
+        code,
+        state,
+      });
+      res?.redirect(redirectUrl);
+    } catch (error) {
+      const frontendBase = process.env.FRONTEND_URL ?? 'http://localhost:3000';
+      const fallback = new URL('/en/login', frontendBase);
+
+      fallback.searchParams.set('oauthError', 'google_callback_failed');
+
+      if (error instanceof HttpException) {
+        fallback.searchParams.set('statusCode', String(error.getStatus()));
+      }
+
+      res?.redirect(fallback.toString());
+    }
+  }
+
+  @Post('register')
+  @ApiOperation({ summary: 'Register a new user' })
+  @ApiResponse({
+    status: 201,
+    description: 'User successfully registered',
+    type: RegistrationResponseDto,
+  })
+  @ApiResponse({ status: 409, description: 'User already exists' })
+  async register(
+    @Body() registerDto: RegisterDto
+  ): Promise<RegistrationResponseDto> {
+    return this.authService.register(registerDto);
+  }
+
+  @Post('login')
+  @HttpCode(HttpStatus.OK)
+  @ApiOperation({ summary: 'Login user' })
+  @ApiResponse({
+    status: 200,
+    description: 'Login successful',
+    schema: {
+      oneOf: [
+        { $ref: getSchemaPath(AuthResponseDto) },
+        {
+          type: 'object',
+          properties: {
+            tempToken: { type: 'string' },
+            twoFactorRequired: { type: 'boolean' },
+          },
+          required: ['tempToken', 'twoFactorRequired'],
+        },
+      ],
+    },
+  })
+  @ApiResponse({ status: 401, description: 'Invalid credentials' })
+  @ApiResponse({ status: 403, description: 'Account locked or deactivated' })
+  async login(
+    @Body() loginDto: LoginDto,
+    @Req() req: Request
+  ): Promise<
+    AuthResponseDto | { tempToken: string; twoFactorRequired: boolean }
+  > {
+    const ip = req.ip ?? req.socket?.remoteAddress ?? 'unknown';
+    return this.authService.login(loginDto, ip);
+  }
+
+  @Post('2fa/setup')
+  @UseGuards(JwtAuthGuard)
+  @ApiBearerAuth()
+  @HttpCode(HttpStatus.OK)
+  @ApiOperation({ summary: 'Setup 2FA (generate secret, QR)' })
+  @ApiResponse({
+    status: 200,
+    description: '2FA setup info',
+    type: TwoFASetupResponseDto,
+  })
+  async setup2FA(
+    @CurrentUser() user: UserPayload
+  ): Promise<TwoFASetupResponseDto> {
+    const result = await this.authService.setupTwoFactor(user.id);
+    return { qrCode: result.qrCode, secret: result.secret };
+  }
+
+  @Post('2fa/verify')
+  @UseGuards(JwtAuthGuard)
+  @ApiBearerAuth()
+  @HttpCode(HttpStatus.OK)
+  @ApiOperation({ summary: 'Verify and enable 2FA' })
+  @ApiResponse({ status: 200, description: '2FA enabled' })
+  async verify2FA(
+    @CurrentUser() user: UserPayload,
+    @Body() dto: TwoFAVerifyDto,
+    @Req() req: Request
+  ): Promise<{ enabled: boolean }> {
+    const ip = req.ip ?? req.socket?.remoteAddress ?? 'unknown';
+    this.authService.check2FAVerificationLimit(user.email, ip);
+    const enabled = await this.authService.verifyTwoFactor(user.id, dto.code);
+    this.authService.record2FAAttempt(user.email, ip, enabled);
+    return { enabled };
+  }
+
+  @Post('2fa/login')
+  @HttpCode(HttpStatus.OK)
+  @ApiOperation({ summary: '2FA login step (validate temp token + TOTP)' })
+  @ApiResponse({
+    status: 200,
+    description: 'Full JWT issued',
+    type: AuthResponseDto,
+  })
+  async twoFactorLogin(
+    @Body() dto: TwoFALoginDto,
+    @Req() req: Request
+  ): Promise<AuthResponseDto> {
+    const ip = req.ip ?? req.socket?.remoteAddress ?? 'unknown';
+    return this.authService.twoFactorLogin(dto.tempToken, dto.code, ip);
+  }
+
+  @Post('logout')
+  @UseGuards(JwtAuthGuard)
+  @HttpCode(HttpStatus.OK)
+  @ApiBearerAuth()
+  @ApiOperation({ summary: 'Logout user' })
+  @ApiResponse({ status: 200, description: 'Logout successful' })
+  @ApiResponse({ status: 401, description: 'Unauthorized' })
+  async logout(
+    @CurrentUser() user: UserPayload,
+    @Body() body: RefreshTokenDto
+  ): Promise<void> {
+    await this.authService.logout(user.id, body.refreshToken);
+  }
+
+  @Post('refresh')
+  @UseGuards(RefreshJwtGuard)
+  @ApiBearerAuth()
+  @ApiOperation({ summary: 'Refresh authentication tokens' })
+  @ApiResponse({
+    status: 200,
+    description: 'Tokens refreshed successfully',
+    type: AuthResponseDto,
+  })
+  @ApiResponse({ status: 401, description: 'Unauthorized' })
+  async refreshTokenHandler(
+    @CurrentUser() user: UserPayload,
+    @Req() req: Request
+  ): Promise<AuthResponseDto> {
+    const authHeader = req.headers.authorization;
+    const oldRefreshToken = authHeader?.startsWith('Bearer ')
+      ? authHeader.slice(7)
+      : '';
+
+    const tokens = this.authService.generateTokens(user);
+
+    await this.authService.updateRefreshToken(
+      user.id,
+      oldRefreshToken,
+      tokens.refreshToken
+    );
+
+    return {
+      accessToken: tokens.accessToken,
+      refreshToken: tokens.refreshToken,
+      accessTokenExpiresAt: new Date(
+        Date.now() + 24 * 60 * 60 * 1000
+      ).toISOString(),
+      refreshTokenExpiresAt: new Date(
+        Date.now() + 7 * 24 * 60 * 60 * 1000
+      ).toISOString(),
+      user: {
+        id: user.id,
+        username: user.username,
+        email: user.email,
+        role: user.isAdmin ? 'admin' : 'user',
+        firstName: user.firstName,
+        lastName: user.lastName,
+        phoneNumber: user.phoneNumber,
+        isAdmin: !!user.isAdmin,
+      },
+    };
+  }
+
+  @Post('forgot-password')
+  @HttpCode(HttpStatus.OK)
+  @ApiOperation({ summary: 'Request password reset' })
+  @ApiResponse({ status: 200, description: 'Password reset email sent' })
+  async forgotPassword(
+    @Body() forgotPasswordDto: ForgotPasswordDto
+  ): Promise<void> {
+    await this.authService.forgotPassword(forgotPasswordDto);
+  }
+
+  @Post('reset-password')
+  @HttpCode(HttpStatus.OK)
+  @ApiOperation({ summary: 'Reset password' })
+  @ApiResponse({ status: 200, description: 'Password reset successful' })
+  @ApiResponse({ status: 400, description: 'Invalid or expired token' })
+  async resetPassword(
+    @Body() resetPasswordDto: ResetPasswordDto
+  ): Promise<void> {
+    await this.authService.resetPassword(resetPasswordDto);
+  }
+
+  @Get('confirm-email/:token')
+  @ApiOperation({ summary: 'Confirm email address' })
+  @ApiResponse({ status: 200, description: 'Email confirmed successfully' })
+  @ApiResponse({ status: 400, description: 'Invalid or expired token' })
+  async confirmEmail(
+    @Param('token') token: string,
+    @Res({ passthrough: true }) res: Response
+  ): Promise<{ success: boolean; message?: string } | void> {
+    const result = await this.authService.confirmEmail(token);
+
+    try {
+      const templatePath = `${process.cwd()}/src/auth/templates/email_confirmed.html`;
+      const template = await readFile(templatePath, 'utf8');
+
+      const year = new Date().getFullYear();
+      let html = template.replaceAll('{{.Year}}', year.toString());
+
+      if (result.success) {
+        // Remove entire else block and remaining markers
+        html = html.replaceAll(/{{else}}[\S\s]*?{{end}}/g, '');
+        html = html.replaceAll('{{if .Success}}', '').replaceAll('{{end}}', '');
+        html = html.replaceAll('{{.Message}}', '');
+      } else {
+        // Remove if block and remaining markers
+        html = html.replaceAll(/{{if .Success}}[\S\s]*?{{else}}/g, '');
+        html = html.replaceAll('{{end}}', '');
+        html = html.replaceAll('{{.Message}}', result.message);
+      }
+
+      res.setHeader('Content-Type', 'text/html');
+      res.send(html);
+      return;
+    } catch {
+      return result;
+    }
+  }
+
+  @Get('fetchuser')
+  @UseGuards(JwtAuthGuard)
+  @ApiBearerAuth()
+  @ApiOperation({ summary: 'Fetch current user profile' })
+  @ApiResponse({
+    status: 200,
+    description: 'User profile retrieved successfully',
+    type: PrivateUserResponseDto,
+  })
+  @ApiResponse({ status: 401, description: 'Unauthorized' })
+  @ApiResponse({ status: 404, description: 'User not found' })
+  async fetchUser(
+    @CurrentUser() user: UserPayload
+  ): Promise<PrivateUserResponseDto> {
+    return this.authService.fetchUser(user.id);
+  }
+
+  @Post('fetchuserbyid')
+  @UseGuards(JwtAuthGuard)
+  @ApiBearerAuth()
+  @ApiOperation({ summary: 'Fetch user by ID' })
+  @ApiResponse({
+    status: 200,
+    description: 'User fetched successfully',
+    type: UserResponseDto,
+  })
+  @ApiResponse({ status: 400, description: 'Invalid user ID format' })
+  @ApiResponse({ status: 401, description: 'Unauthorized' })
+  @ApiResponse({ status: 404, description: 'User not found' })
+  async fetchUserById(
+    @Body() fetchUserDto: FetchUserByIdDto
+  ): Promise<UserResponseDto> {
+    return this.authService.fetchUserById(fetchUserDto.userId);
+  }
+
+  @Put('update')
+  @UseGuards(JwtAuthGuard)
+  @ApiBearerAuth()
+  @ApiOperation({ summary: 'Update user profile' })
+  @ApiResponse({
+    status: 200,
+    description: 'Profile updated successfully',
+    type: PrivateUserResponseDto,
+  })
+  @ApiResponse({ status: 400, description: 'Invalid update data' })
+  @ApiResponse({ status: 401, description: 'Unauthorized' })
+  @ApiResponse({ status: 404, description: 'User not found' })
+  @ApiResponse({ status: 409, description: 'Username or email already taken' })
+  async updateUser(
+    @CurrentUser() user: UserPayload,
+    @Body() updateDto: UpdateUserDto
+  ): Promise<PrivateUserResponseDto> {
+    return this.authService.updateUser(user.id, updateDto);
+  }
+
+  @Patch('update')
+  @UseGuards(JwtAuthGuard)
+  @ApiBearerAuth()
+  @ApiOperation({ summary: 'Update user profile (partial)' })
+  @ApiResponse({
+    status: 200,
+    description: 'Profile updated successfully',
+    type: PrivateUserResponseDto,
+  })
+  @ApiResponse({ status: 400, description: 'Invalid update data' })
+  @ApiResponse({ status: 401, description: 'Unauthorized' })
+  @ApiResponse({ status: 404, description: 'User not found' })
+  @ApiResponse({ status: 409, description: 'Username or email already taken' })
+  async patchUser(
+    @CurrentUser() user: UserPayload,
+    @Body() updateDto: UpdateUserDto
+  ): Promise<PrivateUserResponseDto> {
+    return this.authService.updateUser(user.id, updateDto);
+  }
+
+  @Delete('delete')
+  @UseGuards(JwtAuthGuard)
+  @ApiBearerAuth()
+  @ApiOperation({ summary: 'Delete your own user account' })
+  @ApiResponse({
+    status: 200,
+    description: 'Account deleted successfully',
+    type: MessageResponseDto,
+  })
+  @ApiResponse({ status: 401, description: 'Unauthorized' })
+  @ApiResponse({ status: 500, description: 'Failed to delete account' })
+  async deleteUser(
+    @CurrentUser() user: UserPayload
+  ): Promise<MessageResponseDto> {
+    return this.authService.deleteUser(user.id);
+  }
+
+  @Delete('users/:id')
+  @UseGuards(JwtAuthGuard, AdminGuard)
+  @ApiBearerAuth()
+  @ApiOperation({ summary: 'Admin: delete a user by id' })
+  @ApiResponse({
+    status: 200,
+    description: 'User removed successfully',
+    type: MessageResponseDto,
+  })
+  @ApiResponse({ status: 401, description: 'Unauthorized' })
+  @ApiResponse({ status: 403, description: 'Insufficient privileges' })
+  @ApiResponse({ status: 404, description: 'User not found' })
+  @ApiResponse({
+    status: 400,
+    description: 'Administrators cannot delete themselves',
+  })
+  async deleteUserByAdmin(
+    @CurrentUser() user: UserPayload,
+    @Param('id') id: string
+  ): Promise<MessageResponseDto> {
+    return this.authService.deleteUserByAdmin(user.id, id);
+  }
+
+  @Get('users')
+  @UseGuards(JwtAuthGuard, AdminGuard)
+  @ApiOperation({ summary: 'Admin: fetch all users' })
+  @ApiBearerAuth()
+  @ApiResponse({ status: 200, type: UsersListResponseDto })
+  @ApiResponse({ status: 401, description: 'Unauthorized' })
+  @ApiResponse({ status: 403, description: 'Forbidden' })
+  async getAllUsers(): Promise<UsersListResponseDto> {
+    return this.authService.fetchAllUsers();
+  }
+
+  @Post('resend-confirmation-email')
+  @HttpCode(HttpStatus.OK)
+  @ApiOperation({ summary: 'Resend confirmation email' })
+  @ApiResponse({
+    status: 200,
+    description: 'Confirmation email sent successfully',
+    type: MessageResponseDto,
+  })
+  @ApiResponse({ status: 404, description: 'User not found' })
+  @ApiResponse({ status: 409, description: 'Email already confirmed' })
+  @ApiResponse({ status: 429, description: 'Too many requests' })
+  async resendConfirmationEmail(
+    @Body() resendConfirmationDto: ResendConfirmationDto
+  ): Promise<MessageResponseDto> {
+    return this.authService.resendConfirmationEmail(
+      resendConfirmationDto.email
+    );
+  }
+}

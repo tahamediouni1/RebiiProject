@@ -1,0 +1,354 @@
+{
+  "pages": {
+    "profile": {
+      "title": "Profile",
+      "editButton": "Edit Profile",
+      "tabs": {
+        "overview": "Overview",
+        "account": "Account",
+        "security": "Security"
+      },
+      "personalInfoSection": "Personal Information",
+      "accountSection": "Edit Account Details",
+      "securitySection": "Change your password",
+      "twoFactor": {
+        "title": "Two-Factor Authentication (2FA)",
+        "description": "Add an extra layer of security by requiring an authenticator code during login.",
+        "setupButton": "Set up 2FA",
+        "settingUp": "Setting up...",
+        "scanQr": "Scan this QR code in your authenticator app",
+        "qrAlt": "2FA QR code",
+        "manualKey": "Manual setup key",
+        "enterCode": "Enter the 6-digit code",
+        "codePlaceholder": "123456",
+        "enableButton": "Enable 2FA",
+        "verifying": "Verifying...",
+        "setupSuccess": "2FA setup started",
+        "setupError": "Failed to start 2FA setup",
+        "enableSuccess": "Two-factor authentication enabled",
+        "verifyError": "Failed to verify 2FA code",
+        "invalidCode": "Invalid code"
+      },
+      "saveButton": "Save",
+      "cancelButton": "Cancel",
+      "username": "Username",
+      "email": "Email",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "birthdate": "Birthdate",
+      "phoneNumber": "Phone Number",
+      "dateJoined": "Date Joined",
+      "notFound": "User not found",
+      "updateSuccess": "Profile updated successfully",
+      "updateError": "Failed to update profile",
+      "deleteButton": "Delete Account",
+      "deleteTitle": "Delete Account",
+      "deleteDescription": "Are you sure you want to delete your account? This action cannot be undone.",
+      "deleteConfirmButton": "Delete",
+      "deleteError": "Failed to delete account"
+    },
+    "forgotPassword": {
+      "title": "Forgot Password",
+      "description": "Enter your email address and we'll send you a link to reset your password.",
+      "emailLabel": "Email",
+      "emailPlaceholder": "Enter your email",
+      "sendButton": "Send Reset Email",
+      "sendingButton": "Sending...",
+      "successTitle": "Check Your Email",
+      "successDescription": "We've sent you an email with instructions to reset your password.",
+      "successMessage": "If account exists, check your email for reset link",
+      "checkEmailMessage": "If an account with that email exists, you'll receive a password reset link shortly.",
+      "backToLogin": "Back to Login"
+    },
+    "resetPassword": {
+      "title": "Reset Password",
+      "description": "Enter your new password below.",
+      "tokenLabel": "Reset Token",
+      "tokenPlaceholder": "Enter your reset token",
+      "passwordLabel": "New Password",
+      "passwordPlaceholder": "Enter your new password",
+      "resetButton": "Reset Password",
+      "resettingButton": "Resetting...",
+      "successMessage": "Password reset successfully",
+      "errorMessage": "Failed to reset password",
+      "invalidTokenTitle": "Invalid or Expired Link",
+      "invalidTokenDescription": "This password reset link is no longer valid.",
+      "invalidTokenMessage": "The reset token may have expired or was already used. Please request a new password reset link.",
+      "requestNewLink": "Request a new reset link",
+      "tokenDetected": "Reset token detected from email link.",
+      "backToLogin": "Back to Login"
+    },
+    "home": {
+      "navigation": {
+        "features": "Features",
+        "solutions": "Solutions",
+        "pricing": "Pricing",
+        "getStarted": "Get Started",
+        "login": "Login",
+        "register": "Register",
+        "profile": "Profile",
+        "adminDashboard": "Admin Dashboard",
+        "logout": "Logout"
+      },
+      "hero": {
+        "badge": "AI-Powered Business Management",
+        "title": "Your AI Accountant",
+        "subtitle": "24/7 Business Partner",
+        "description": "Transform your business with intelligent automation. Accountia replaces traditional accounting with AI-driven insights, automated bookkeeping, and real-time financial guidance.",
+        "startTrial": "Start Free Trial",
+        "watchDemo": "Watch Demo"
+      },
+      "stats": {
+        "businesses": "Businesses",
+        "transactions": "Transactions",
+        "accuracy": "Accuracy",
+        "support": "Support"
+      },
+      "features": {
+        "title": "Everything You Need to Manage Your Business",
+        "description": "Powerful features designed to streamline your financial operations",
+        "aiInsights": {
+          "title": "AI-Powered Insights",
+          "description": "Get intelligent financial recommendations and predictions based on your business data"
+        },
+        "automatedBookkeeping": {
+          "title": "Automated Bookkeeping",
+          "description": "Eliminate manual data entry with smart categorization and real-time reconciliation"
+        },
+        "realtimeAnalytics": {
+          "title": "Real-time Analytics",
+          "description": "Monitor your business performance with live dashboards and custom reports"
+        },
+        "smartInvoicing": {
+          "title": "Smart Invoicing",
+          "description": "Create, send, and track invoices automatically with AI-powered payment reminders"
+        },
+        "taxOptimization": {
+          "title": "Tax Optimization",
+          "description": "Maximize deductions and minimize tax liability with intelligent tax planning"
+        },
+        "security": {
+          "title": "Bank-level Security",
+          "description": "Your financial data is protected with enterprise-grade encryption and security"
+        }
+      },
+      "solutions": {
+        "title": "Built for Every Business Type",
+        "description": "Whether you're a startup or enterprise, we've got you covered",
+        "mostPopular": "Most Popular",
+        "viewAllSolutions": "View all solutions",
+        "startups": {
+          "title": "Startups",
+          "description": "Perfect for new businesses looking to establish solid financial foundations",
+          "features": [
+            "Easy setup and onboarding",
+            "Investor-ready reports",
+            "Burn rate tracking"
+          ]
+        },
+        "smallBusiness": {
+          "title": "Small Business",
+          "description": "Comprehensive tools for growing businesses with expanding needs",
+          "features": [
+            "Multi-currency support",
+            "Payroll integration",
+            "Inventory management"
+          ]
+        },
+        "enterprise": {
+          "title": "Enterprise",
+          "description": "Advanced features for large organizations with complex requirements",
+          "features": [
+            "Custom workflows",
+            "Advanced compliance",
+            "Dedicated support"
+          ]
+        }
+      },
+      "cta": {
+        "title": "Ready to Transform Your Business?",
+        "description": "Join thousands of businesses that have already made the switch to AI-powered financial management.",
+        "startTrial": "Start Free Trial",
+        "scheduleDemo": "Schedule Demo"
+      },
+      "footer": {
+        "tagline": "Your AI-powered business management platform.",
+        "product": "Product",
+        "company": "Company",
+        "support": "Support",
+        "features": "Features",
+        "pricing": "Pricing",
+        "security": "Security",
+        "about": "About",
+        "blog": "Blog",
+        "careers": "Careers",
+        "helpCenter": "Help Center",
+        "contact": "Contact",
+        "status": "Status",
+        "copyright": "© 2024 Accountia. All rights reserved."
+      }
+    },
+    "login": {
+      "title": "Welcome back",
+      "description": "Sign in to your Accountia account to continue",
+      "emailLabel": "Email",
+      "emailPlaceholder": "Enter your email",
+      "passwordLabel": "Password",
+      "passwordPlaceholder": "Enter your password",
+      "signInButton": "Sign In",
+      "signingInButton": "Signing in...",
+      "continueWithGoogle": "Continue with Google",
+      "forgotPassword": "Forgot password?",
+      "noAccount": "Don't have an account?",
+      "signUp": "Sign up",
+      "signInAriaLabel": "Sign in to your account",
+      "resetPasswordAriaLabel": "Reset your password",
+      "createAccountAriaLabel": "Create a new account",
+      "authNavigationLabel": "Authentication navigation",
+      "unexpectedError": "An error occurred during login. Please try again.",
+      "twoFactorLabel": "Two-Factor Code",
+      "twoFactorPlaceholder": "Enter your 2FA code",
+      "verify2FAButton": "Verify 2FA",
+      "verifying2FAButton": "Verifying..."
+    },
+    "register": {
+      "title": "Create account",
+      "description": "Join Accountia to manage your business finances efficiently",
+      "firstNameLabel": "First Name",
+      "firstNamePlaceholder": "Enter your first name",
+      "lastNameLabel": "Last Name",
+      "lastNamePlaceholder": "Enter your last name",
+      "usernameLabel": "Username",
+      "usernamePlaceholder": "Choose a username",
+      "birthdateLabel": "Birth Date",
+      "birthdatePlaceholder": "Select your date of birth",
+      "phoneNumberLabel": "Phone Number",
+      "phoneNumberPlaceholder": "Enter your phone number",
+      "emailLabel": "Email",
+      "emailPlaceholder": "Enter your email",
+      "passwordLabel": "Password",
+      "passwordPlaceholder": "Create a password",
+      "confirmPasswordLabel": "Confirm Password",
+      "confirmPasswordPlaceholder": "Confirm your password",
+      "termsAndConditions": "I accept terms and conditions",
+      "registerButton": "Register",
+      "creatingAccountButton": "Creating account...",
+      "continueWithGoogle": "Sign up with Google",
+      "hasAccount": "Already have an account?",
+      "signIn": "Sign in",
+      "dialog": {
+        "registrationSuccessTitle": "Registration Successful!",
+        "registrationSuccessMessage": "Your account has been created successfully! Please check your email to confirm your account.",
+        "loginButton": "Go to Login",
+        "emailNotConfirmedTitle": "Email Not Confirmed",
+        "emailNotConfirmedDescription": "An account with email {email} already exists but the email has not been confirmed yet.",
+        "cancelButton": "Cancel",
+        "resendConfirmationButton": "Resend Confirmation Email",
+        "resendingButton": "Sending..."
+      },
+      "errors": {
+        "nameRequired": "Name is required",
+        "emailRequired": "Email is required",
+        "emailInvalid": "Invalid email address",
+        "passwordRequired": "Password is required",
+        "passwordTooShort": "Password must be at least 8 characters",
+        "passwordsNotMatch": "Passwords do not match",
+        "confirmPasswordRequired": "Please confirm your password",
+        "acceptTermsRequired": "You must accept the terms and conditions"
+      },
+      "resendSuccessMessage": "Confirmation email sent successfully",
+      "resendErrorMessage": "Failed to resend confirmation email",
+      "unexpectedError": "An error occurred during login. Please try again.",
+      "registrationFailed": "Registration failed. Please try again.",
+      "emailAlreadyRegistered": "This email is already registered",
+      "accountExists": "An account with this email already exists",
+      "personalInfoLabel": "Personal information",
+      "accountInfoLabel": "Account information",
+      "authNavLabel": "Authentication navigation"
+    }
+  },
+  "tooltips": {
+    "aiInsights": "Learn more about AI-powered insights",
+    "automatedBookkeeping": "Automated bookkeeping features",
+    "realtimeAnalytics": "Real-time analytics dashboard",
+    "smartInvoicing": "Smart invoicing system",
+    "taxOptimization": "Tax optimization features",
+    "security": "Bank-level security features",
+    "changeLanguage": "Change language",
+    "toggleTheme": "Toggle theme",
+    "getStarted": "Get started with Accountia",
+    "signIn": "Sign in to your account",
+    "createAccount": "Create a new account",
+    "profile": "View your profile",
+    "adminDashboard": "Go to the admin dashboard",
+    "logout": "Sign out of your account",
+    "perfectForNewBusinesses": "Perfect for new businesses",
+    "mostPopularChoice": "Most popular choice",
+    "advancedFeatures": "Advanced features for large organizations"
+  },
+  "brand": {
+    "name": "Accountia",
+    "logoAlt": "Accountia Logo"
+  },
+  "admin": {
+    "title": "Admin Dashboard",
+    "subtitle": "Manage users and access controls",
+    "stats": {
+      "totalUsers": "Total users",
+      "totalAdmins": "Admins",
+      "lastUpdated": "Sync Users",
+      "placeholder": "—",
+      "syncButton": "Sync",
+      "refreshing": "Refreshing...",
+      "upToDate": "Up to date"
+    },
+    "usersTitle": "Users",
+    "searchPlaceholder": "Search users...",
+    "dateFilterLabel": "Filter by registration date:",
+    "dateFilterPlaceholder": "Select date range",
+    "loadError": "Failed to load users",
+    "deleteError": "Failed to delete user",
+    "noResults": "No results found.",
+    "adminBadge": "Admin",
+    "userBadge": "User",
+    "manageButton": "Manage",
+    "deleteDialog": {
+      "title": "Delete user",
+      "description": "Are you sure you want to delete user {username}? This action cannot be undone.",
+      "confirm": "Delete",
+      "deleting": "Deleting..."
+    },
+    "tableCaption": "List of all users",
+    "username": "Username",
+    "email": "Email",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "isAdmin": "Admin",
+    "dateJoined": "Date Joined",
+    "actions": "Actions",
+    "confirmDeleteTitle": "Confirm Deletion",
+    "confirmDeleteDescription": "Are you sure you want to delete user {username}? This action cannot be undone.",
+    "noUsers": "No users found."
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "retry": "Retry",
+    "cancel": "Cancel",
+    "clear": "Clear",
+    "na": "N/A",
+    "showPassword": "Show password",
+    "hidePassword": "Hide password",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "close": "Close",
+    "confirm": "Confirm",
+    "yes": "Yes",
+    "no": "No",
+    "pageNotFound": "Oops! This page vanished into thin air.",
+    "pageNotFoundDescription": "The page you are looking for doesn't exist or has been moved.",
+    "pageNotFoundHelp": "Let's get you back on track.",
+    "goHome": "Take Me Home"
+  }
+}
